@@ -1,4 +1,19 @@
 //  OpenShift sample Node application
+const apm = require('elastic-apm-node').start({
+  // Override service name from package.json
+  // Allowed characters: a-z, A-Z, 0-9, -, _, and space
+  serviceName: 'crudapp',
+
+  // Use if APM Server requires a token
+  secretToken: 'otfQnbHFAkxJ02JYjv',
+
+  // Use if APM Server uses API keys for authentication
+  apiKey: '',
+
+  // Set custom APM Server URL (default: http://127.0.0.1:8200)
+  serverUrl: 'https://52201628867a448c817119a220f1d9bb.apm.us-central1.gcp.cloud.es.io:443',
+})
+
 var express = require('express'),
     app     = express(),
     morgan  = require('morgan');
